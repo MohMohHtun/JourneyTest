@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">JourneyTest</string>
+    <string name="search">Search</string>
+    <string name="search_cmt">Search Comments</string>
+</resources>
