@@ -99,9 +99,9 @@ class MainActivity : AppCompatActivity() {
             // Item click listener, navigate to DetailActivity
             val intent = Intent(this, CommentActivity::class.java)
             intent.putExtra(
-                "postId",
-                post.id
-            )  // Pass the clicked post's id to the comment detail view
+                "post",
+                post
+            )  // Pass the clicked post object to the comment detail view
             startActivity(intent)
         }
 

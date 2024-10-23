@@ -2,4 +2,6 @@
     <string name="app_name">JourneyTest</string>
     <string name="search">Search</string>
     <string name="search_cmt">Search Comments</string>
+    <string name="cmt_list">All Comments </string>
+    <string name="userId">User Id : </string>
 </resources>
