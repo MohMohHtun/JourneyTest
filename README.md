@@ -28,16 +28,16 @@ Libraries
 - RecyclerView
 - CardView
 
-![Posts View] (https://raw.githubusercontent.com/MohMohHtun/JourneyTest/blob/main/images/online_posts.png)
+![Posts View] (https://raw.githubusercontent.com/MohMohHtun/JourneyTest/main/images/online_posts.png)
 
-![Comments View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/comment_online.png)
+![Comments View] (https://raw.githubusercontent.com/MohMohHtun/JourneyTest/main/images/comment_online.png)
 
-![Posts_Search_View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/post_search.png)
+![Posts_Search_View] (https://raw.githubusercontent.com/MohMohHtun/JourneyTest/main/images/post_search.png)
 
-![Comments_Search_ View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/search_comment.png)
+![Comments_Search_ View] (https://raw.githubusercontent.com/MohMohHtun/JourneyTest/main/images/search_comment.png)
 
-![Offline_Posts View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/offline_post.png)
+![Offline_Posts View] (https://raw.githubusercontent.com/MohMohHtun/JourneyTest/main/images/offline_post.png)
 
-![Offline_Comments View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/offline_comment.png)
+![Offline_Comments View] (https://raw.githubusercontent.com/MohMohHtun/JourneyTest/main/images/offline_comment.png)
 
-![NoInternet] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/no_internet.png)
+![NoInternet] (https://raw.githubusercontent.com/MohMohHtun/JourneyTest/main/images/no_internet.png)
