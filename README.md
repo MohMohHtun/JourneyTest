@@ -27,3 +27,17 @@ Libraries
 - Hilt
 - RecyclerView
 - CardView
+
+https://github.com/MohMohHtun/JourneyTest/blob/main/images/online_posts.png
+
+https://github.com/MohMohHtun/JourneyTest/blob/main/images/comment_online.png
+
+https://github.com/MohMohHtun/JourneyTest/blob/main/images/post_search.png
+
+https://github.com/MohMohHtun/JourneyTest/blob/main/images/search_comment.png
+
+https://github.com/MohMohHtun/JourneyTest/blob/main/images/offline_post.png
+
+https://github.com/MohMohHtun/JourneyTest/blob/main/images/offline_comment.png
+
+https://github.com/MohMohHtun/JourneyTest/blob/main/images/no_internet.png
