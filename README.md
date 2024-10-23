@@ -28,16 +28,16 @@ Libraries
 - RecyclerView
 - CardView
 
-https://github.com/MohMohHtun/JourneyTest/blob/main/images/online_posts.png
+![Posts View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/online_posts.png)
 
-https://github.com/MohMohHtun/JourneyTest/blob/main/images/comment_online.png
+![Comments View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/comment_online.png)
 
-https://github.com/MohMohHtun/JourneyTest/blob/main/images/post_search.png
+![Posts_Search_View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/post_search.png)
 
-https://github.com/MohMohHtun/JourneyTest/blob/main/images/search_comment.png
+![Comments_Search_ View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/search_comment.png)
 
-https://github.com/MohMohHtun/JourneyTest/blob/main/images/offline_post.png
+![Offline_Posts View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/offline_post.png)
 
-https://github.com/MohMohHtun/JourneyTest/blob/main/images/offline_comment.png
+![Offline_Comments View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/offline_comment.png)
 
-https://github.com/MohMohHtun/JourneyTest/blob/main/images/no_internet.png
+![NoInternet] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/no_internet.png)
