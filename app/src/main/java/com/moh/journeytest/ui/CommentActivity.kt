@@ -1,36 +1,25 @@
 package com.moh.journeytest.ui
 
-import android.content.Intent
-import android.graphics.PorterDuff
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.annotation.ColorRes
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.moh.journeytest.R
 import com.moh.journeytest.databinding.ActivityCommentBinding
-import com.moh.journeytest.databinding.ActivityMainBinding
-import com.moh.journeytest.model.Comment
 import com.moh.journeytest.model.Post
 import com.moh.journeytest.network.NetworkUtils
 import com.moh.journeytest.viewmodel.CommentViewModel
-import com.moh.journeytest.viewmodel.PostViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -60,31 +49,16 @@ class CommentActivity : AppCompatActivity() {
         }
         setupRecyclerView()
         handleLoading()
-//        // Observe the LiveData and submit data to the adapter
-//        viewModel.comments.observe(this) { comments ->
-//            adapter.submitList(comments)
-//        }
         // Collect the StateFlow using `lifecycleScope` and `repeatOnLifecycle`
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.filteredComments.collect { comments ->
-                    Log.d("CommentActivity", "submitList  : $comments")
                     adapter.submitList(comments)
 
                 }
             }
         }
         adapter.notifyDataSetChanged()
-//        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(searchText: String?): Boolean {
-//                viewModel.setSearchQuery(searchText ?: "")
-//                return true
-//            }
-//        })
         post?.let {
             supportActionBar?.title = "PostId : ${it.id}"
             binding.userIdTV.text =  "UserId : ${it.userId}"
@@ -107,6 +81,12 @@ class CommentActivity : AppCompatActivity() {
                 binding.progressBar.visibility = View.GONE
                 binding.loadingText.visibility = View.GONE
                 binding.commentRv.visibility = View.VISIBLE
+            }
+        })
+
+        viewModel.isFromLocal.observe(this, Observer { isFromLocal ->
+            if(isFromLocal){
+                Toast.makeText(this,"Load Data From Device", Toast.LENGTH_LONG).show()
             }
         })
     }

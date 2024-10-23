@@ -1,12 +1,10 @@
 package com.moh.journeytest.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.moh.journeytest.model.Comment
-import com.moh.journeytest.model.Post
 import com.moh.journeytest.repository.PostsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -31,11 +29,12 @@ class CommentViewModel @Inject constructor(private val repository: PostsReposito
     private val _searchCmtQuery = MutableStateFlow("")
     val searchCmtQuery: StateFlow<String> = _searchCmtQuery
 
+    private val _isFromLocal = MutableLiveData<Boolean>()
+    val isFromLocal: LiveData<Boolean> get() = _isFromLocal
+
     val filteredComments: StateFlow<List<Comment>> = searchCmtQuery
         .debounce(300)
         .combine(comments) { query, comments ->
-            Log.d("CommentActivity", "submitList : query: $query : filteredComments : ${comments}")
-
             if (query.isEmpty()) comments else comments.filter {
                 it.name?.contains(query, ignoreCase = true)
                         ?: true || it.email?.contains(query, ignoreCase = true)
@@ -53,12 +52,13 @@ class CommentViewModel @Inject constructor(private val repository: PostsReposito
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 _isLoading.postValue(true)
+                _isFromLocal.postValue(false)
                 val comments = try {
                     repository.getComments(postId)  // Fetch from API and save to DB
                 } catch (e: Exception) {
+                    _isFromLocal.postValue(true)
                     repository.getCommentsFromDatabase(postId)  // Fetch from local DB in case of an error
                 }
-                Log.d("CommentActivity", "postId : ${postId} \ncomments : ${comments}")
                 _comments.value = comments
                 if (comments.isNotEmpty()) {
                     _isLoading.postValue(false)
@@ -80,7 +80,6 @@ class CommentViewModel @Inject constructor(private val repository: PostsReposito
                 } catch (e: Exception) {
                     repository.getAllCommentsFromDatabase()  // Fetch from local DB in case of an error
                 }
-                Log.d("CommentActivity", "All comments : ${comments}")
                 _comments.value = comments
                 if (comments.isNotEmpty()) {
                     _isLoading.postValue(false)

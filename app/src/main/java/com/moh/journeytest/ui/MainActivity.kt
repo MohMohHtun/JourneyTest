@@ -2,12 +2,11 @@ package com.moh.journeytest.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moh.journeytest.databinding.ActivityMainBinding
 import com.moh.journeytest.network.NetworkUtils
@@ -18,7 +17,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.observeOn
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -39,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.filteredPosts.collect { posts ->
-                    Log.d("MainActivity", "submitList  posts : $posts")
                     adapter.submitList(posts)
                 }
             }
@@ -89,6 +86,12 @@ class MainActivity : AppCompatActivity() {
                 binding.progressBar.visibility = View.GONE
                 binding.loadingText.visibility = View.GONE
                 binding.postRv.visibility = View.VISIBLE
+            }
+        })
+
+        viewModel.isFromLocal.observe(this, Observer { isFromLocal ->
+            if(isFromLocal){
+                Toast.makeText(this,"Load Data From Device",Toast.LENGTH_LONG).show()
             }
         })
     }
