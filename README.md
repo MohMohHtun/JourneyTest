@@ -28,7 +28,7 @@ Libraries
 - RecyclerView
 - CardView
 
-![Posts View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/online_posts.png)
+![Posts View] (https://github.com/MohMohHtun/JourneyTest/edit/main/images/online_posts.png)
 
 ![Comments View] (https://github.com/MohMohHtun/JourneyTest/blob/main/images/comment_online.png)
 
